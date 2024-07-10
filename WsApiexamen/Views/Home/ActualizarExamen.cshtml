@@ -1,0 +1,31 @@
+﻿@model WsApiexamen.Models.BdiExamenModels.tblExamen
+
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+
+<div class="card-body">
+    <div class="row">
+
+        <form method="post">
+
+            <input type="hidden" asp-for="idExamen"/>
+
+            <div class="col-sm-4">
+                <label class="form-label">Nombre</label>
+                <input asp-for="nombre" type="text" class="form-control" />
+            </div>
+            <div class="col-sm-4">
+                <label class="form-label">Descripción</label>
+                <input asp-for="descripcion" type="text" class="form-control" />
+                <br />
+            </div>
+
+
+            <input type="submit" value="Aceptar" class="btn btn-success" />
+
+        </form>
+    </div>
+</div>

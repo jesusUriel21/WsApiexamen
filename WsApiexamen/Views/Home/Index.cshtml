@@ -1,0 +1,44 @@
+﻿@model IEnumerable<WsApiexamen.Models.BdiExamenModels.tblExamen>
+
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome</h1>
+    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+</div>
+
+<a asp-action="AgregarExamen" asp-controller="Home" class="btn btn-success">Agregar</a>
+
+<table  class="table table-active table-bordered table-hover">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Descripcion</th>
+            <th>Opciones</th>
+        </tr>
+    </thead>
+
+    <tbody>
+      
+            
+            @foreach (var a in Model)
+            {
+                <tr>
+                    <td>@a.idExamen</td>
+                    <td>@a.nombre</td>
+                    <td>@a.descripcion</td>
+                    <td>
+                        <a asp-action="ActualizarExamen" asp-route-ID="@a.idExamen" class="btn btn-warning">Editar</a>
+                        <a asp-action="ConsultarExamen" asp-route-id="@a.idExamen" class="btn btn-secondary">Detalles</a>
+                        <a asp-action="EliminarExamen" asp-route-ID="@a.idExamen" class="btn btn-danger">Eliminar</a>
+                    </td>
+                </tr>
+            }
+      
+    </tbody>
+</table>
+
+
