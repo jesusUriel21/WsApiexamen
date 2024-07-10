@@ -1,0 +1,74 @@
+create database Bdiexamen
+
+use Bdiexamen;
+
+CREATE TABLE tblExamen(
+ idExamen int primary key identity,
+ nombre varchar(255),
+ descripcion varchar(255)
+)
+
+------Procedimineto almacenado Agreagar
+CREATE PROCEDURE spAgregar
+   @nombre varchar(255),
+   @descripcion varchar(255)
+
+   AS
+
+   BEGIN
+
+    INSERT INTO tblExamen(nombre, descripcion) 
+    VALUES (@nombre, @descripcion)
+   
+  END
+
+
+-----Procedimiento almacenado actualizar
+CREATE PROCEDURE spActualizar
+   @idExamen int,
+   @nombre varchar(255),
+   @descripcion varchar(255)
+
+   AS
+
+   BEGIN
+
+    UPDATE tblExamen SET nombre=@nombre, descripcion=descripcion
+    WHERE idExamen = @idExamen
+
+  END
+
+
+
+------Procedimineto almacenado eliminar
+
+CREATE PROCEDURE spEliminar
+   @idExamen int
+
+   AS
+
+   BEGIN
+
+     DELETE FROM tblExamen WHERE idExamen=@idExamen 
+
+  END
+
+-------Procedimiento Almacenado Consultar
+
+CREATE PROCEDURE spConsultar
+  @idExamen int
+AS
+BEGIN
+  SELECT * FROM tblExamen WHERE idExamen=@idExamen
+END
+
+
+
+
+-------Procedimiento almacenado Obtener datos
+
+CREATE PROCEDURE spConsultar
+AS
+BEGIN
+  SELECT * FROM tblExamen
+END
